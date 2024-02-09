@@ -1,0 +1,21 @@
+package project.ebook;
+
+public class Member {
+    private final EBook eBook = new EBook();
+
+    public void bookName() {
+        eBook.bookName();
+    }
+
+    public void author() {
+        eBook.author();
+    }
+
+    public void bookReturn() {
+        eBook.bookReturn();
+    }
+
+    public void bookRental() {
+        eBook.bookRental();
+    }
+}
