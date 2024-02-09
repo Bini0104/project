@@ -1,0 +1,27 @@
+package project.ebook;
+
+public class HarryPotter extends Book {
+
+    @Override
+    public void bookName() {
+        System.out.println("HarryPotter");
+    }
+
+    @Override
+    public void bookRental() {
+
+        System.out.println("HarryPotter");
+        super.bookRental();
+
+    }
+
+    @Override
+    public void author() {
+        System.out.println("작가 : 조앤.K.롤링");
+    }
+
+    @Override
+    public void bookReturn() {
+        System.out.println("HarryPotter를 반납합니다.");
+    }
+}
