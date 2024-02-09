@@ -1,0 +1,25 @@
+package project.ebook;
+
+public class Book {
+private boolean bookRenal;
+
+    public void bookName(){
+        System.out.println("책의 이름은 ");
+    }
+    public void bookRental(){
+        System.out.println("을(를) 대여합니다.");
+        if (!bookRenal){
+            System.out.println("대여를 완료했습니다.");
+        }else {
+            bookRenal =false;
+            System.out.println("이미 대여가 완료된 책입니다.");
+        }
+    }
+    public void author(){
+        System.out.println("작가 : ");
+    }
+
+    public void bookReturn(){
+        System.out.println("책을 반납합니다.");
+    }
+}
