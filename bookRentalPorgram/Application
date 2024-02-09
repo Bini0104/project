@@ -1,0 +1,43 @@
+package project.ebook;
+
+import java.util.Scanner;
+
+public class Application {
+    public static void main(String[] args) {
+
+        Member member = new Member();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("========ebook 대여 프로그램=========");
+
+            System.out.println("1. 대출하기");
+            System.out.println("2. 반납하기");
+
+            System.out.println("0. 프로그램 종료");
+            System.out.println("-------------------");
+            System.out.print("메뉴선택 : ");
+
+            int no = scanner.nextInt();
+
+            switch (no) {
+                case 1:
+                    member.bookRental();
+                case 2:
+
+                case 0:
+                    System.out.println("프로그램을 종료합니다.");
+                    break;
+
+                default:
+                    System.out.println("잘못된 번호를 선택하셨습니다.");
+                    break;
+            }
+            if (no == 0) {
+                break;
+            }
+
+
+        }
+    }
+}
