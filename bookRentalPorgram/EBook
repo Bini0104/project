@@ -1,0 +1,38 @@
+package project.ebook;
+
+import java.util.Scanner;
+
+public class EBook extends Book {
+    private boolean isRental;
+    private boolean isReturn;
+    Scanner scanner = new Scanner(System.in);
+
+    HarryPotter harryPotter = new HarryPotter();
+    Wonka wonka = new Wonka();
+    Twilight twilight = new Twilight();
+
+
+    public void bookRental(){
+        if (!isRental){
+            System.out.println();
+            System.out.println("대여할 수 있는 책은");
+            System.out.print("1. ");harryPotter.bookName();
+            System.out.print("2. ");wonka.bookName();
+            System.out.print("3. ");twilight.bookName();
+            System.out.print("책 선택 : ");
+
+            int no = scanner.nextInt();
+
+            if (no == 1){
+                harryPotter.bookName();
+                harryPotter.author();
+                harryPotter.bookRental();
+
+                int no2 = scanner.nextInt();
+            }
+
+        }
+
+    }
+
+}
