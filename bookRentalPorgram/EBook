@@ -2,37 +2,45 @@ package project.ebook;
 
 import java.util.Scanner;
 
-public class EBook extends Book {
-    private boolean isRental;
-    private boolean isReturn;
-    Scanner scanner = new Scanner(System.in);
+public class EBook {
+    private String borrowerName;
+    private String borrowerPhoneNumber;
 
-    HarryPotter harryPotter = new HarryPotter();
-    Wonka wonka = new Wonka();
-    Twilight twilight = new Twilight();
+    public void borrowBook(Book book) {
+        if (book.borrowBook()) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("이름을 입력하세요: ");
+            String borrowerName = scanner.nextLine();
 
+            System.out.print("전화번호 뒷자리를 입력하세요: ");
+            String borrowerPhoneNumber = scanner.nextLine();
 
-    public void bookRental(){
-        if (!isRental){
-            System.out.println();
-            System.out.println("대여할 수 있는 책은");
-            System.out.print("1. ");harryPotter.bookName();
-            System.out.print("2. ");wonka.bookName();
-            System.out.print("3. ");twilight.bookName();
-            System.out.print("책 선택 : ");
+            this.borrowerName = borrowerName;
+            this.borrowerPhoneNumber = borrowerPhoneNumber;
 
-            int no = scanner.nextInt();
-
-            if (no == 1){
-                harryPotter.bookName();
-                harryPotter.author();
-                harryPotter.bookRental();
-
-                int no2 = scanner.nextInt();
-            }
-
+            System.out.println("책이 대출 되었습니다.");
+        } else {
+            System.out.println("이미 대출된 책입니다. 다른 책을 선택해주세요.");
         }
-
     }
 
+    public void returnBook(Book book) {
+        if (book.returnBook()) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("이름을 입력하세요: ");
+            String borrowerName = scanner.nextLine();
+
+            System.out.print("전화번호 뒷자리를 입력하세요: ");
+            String borrowerPhoneNumber = scanner.nextLine();
+
+            if (borrowerName.equals(this.borrowerName) && borrowerPhoneNumber.equals(this.borrowerPhoneNumber)) {
+                System.out.println("책 반납이 완료되었습니다.");
+            } else {
+                System.out.println("대출 정보와 일치하지 않습니다. 다시 확인해주세요.");
+                book.borrowBook();
+            }
+        } else {
+            System.out.println("대출되지 않은 책은 반납할 수 없습니다.");
+        }
+    }
 }
