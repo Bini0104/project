@@ -1,28 +1,6 @@
-package project.ebook;
-
 public class Twilight extends Book {
-
     @Override
-    public void bookName() {
+    public void title() {
         System.out.println("Twilight");
-    }
-
-    @Override
-    public void bookRental() {
-        System.out.println("Twilight");
-        super.bookRental();
-    }
-
-    public Twilight() {
-    }
-
-    @Override
-    public void author() {
-        System.out.println("작가 : 스테프니 메이어");
-    }
-
-    @Override
-    public void bookReturn() {
-        System.out.println("Twilight을 반납합니다.");
     }
 }
