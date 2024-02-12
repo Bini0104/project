@@ -28,5 +28,5 @@ public abstract class Book {
         }
     }
 
-    public abstract void title(); // 이거 왜 들어가는 거지..
+    public abstract void title();
 }
