@@ -1,12 +1,11 @@
 package project.ebook;
 
-public class Book {
+public abstract class Book {
     private String title;
     private boolean bookRenal;
 
-    public Book(String title) {
+    public Book() {
         this.title = title;
-        this.bookRenal = false;
     }
 
     public boolean borrowBook() {
@@ -28,4 +27,6 @@ public class Book {
             return false;
         }
     }
+
+    public abstract void title(); // 왜 생김..?
 }
