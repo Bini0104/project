@@ -1,43 +1,99 @@
-package project.ebook;
-
 import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
+        EBook eBookProgram = new EBook();
+        Scanner sc3 = new Scanner(System.in);
 
-        Member member = new Member();
-        Scanner scanner = new Scanner(System.in);
+        Member member = new Member("윤해빈", "1234");
 
-        while (true) {
-            System.out.println("========ebook 대여 프로그램=========");
+        Book harryPotter = new HarryPotter();
+        Book twilight = new Twilight();
+        Book wonka = new Wonka();
 
+        int menu;
+        do {
             System.out.println("1. 대출하기");
             System.out.println("2. 반납하기");
+            System.out.println("0. 프로그램 종료하기");
+            System.out.print("선택: ");
 
-            System.out.println("0. 프로그램 종료");
-            System.out.println("-------------------");
-            System.out.print("메뉴선택 : ");
+            menu = sc3.nextInt();
+            sc3.nextLine();
 
-            int no = scanner.nextInt();
-
-            switch (no) {
+            switch (menu) {
                 case 1:
-                    member.bookRental();
+                    System.out.println("대출할 책을 선택하세요:");
+                    System.out.println("1. Harry Potter");
+                    System.out.println("2. Twilight");
+                    System.out.println("3. Wonka");
+                    System.out.print("책 선택: ");
+                    int num = sc3.nextInt();
+                    sc3.nextLine();
+
+                    Book selectBook = null;
+                    switch (num) {
+                        case 1:
+                            selectBook = harryPotter;
+                            break;
+                        case 2:
+                            selectBook = twilight;
+                            break;
+                        case 3:
+                            selectBook = wonka;
+                            break;
+                        default:
+                            System.out.println("올바른 책을 선택해주세요.");
+                            break;
+                    }
+
+                    if (selectBook != null) {
+                        member.borrowBook(eBookProgram, selectBook);
+                    }
+                    break;
+
                 case 2:
+                    System.out.println("반납할 책을 선택하세요:");
+                    System.out.println("1. Harry Potter");
+                    System.out.println("2. Twilight");
+                    System.out.println("3. Wonka");
+                    System.out.print("책 선택: ");
+                    int returnChoice = sc3.nextInt();
+                    sc3.nextLine();
+
+                    Book returnBook = null;
+                    switch (returnChoice) {
+                        case 1:
+                            returnBook = harryPotter;
+                            break;
+                        case 2:
+                            returnBook = twilight;
+                            break;
+                        case 3:
+                            returnBook = wonka;
+                            break;
+                        default:
+                            System.out.println("올바른 책을 선택해주세요.");
+                            break;
+                    }
+
+                    if (returnBook != null) {
+                        member.returnBook(eBookProgram, returnBook);
+                    }
+                    break;
 
                 case 0:
                     System.out.println("프로그램을 종료합니다.");
                     break;
 
                 default:
-                    System.out.println("잘못된 번호를 선택하셨습니다.");
+                    System.out.println("번호를 다시 입력해주세요.");
                     break;
             }
-            if (no == 0) {
-                break;
-            }
+        } while (menu != 0);
 
-
-        }
+        sc3.close();
     }
 }
+
+
