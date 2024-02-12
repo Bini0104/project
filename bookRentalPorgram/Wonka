@@ -1,25 +1,7 @@
-package project.ebook;
-
-public class Wonka extends Book{
+public class Wonka extends Book {
 
     @Override
-    public void bookName() {
+    public void title() {
         System.out.println("Wonka");
-    }
-
-    @Override
-    public void bookRental() {
-        System.out.println("Wonka");
-        super.bookRental();
-    }
-
-    @Override
-    public void author() {
-        System.out.println("작가 : 시빌 파운더 외 2명");
-    }
-
-    @Override
-    public void bookReturn() {
-        System.out.println("Wonka를 반납합니다.");
     }
 }
